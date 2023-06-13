@@ -1,20 +1,19 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportManager : MonoBehaviour
 {
-    public int[] password = new int[] { 1, 1, 1};
-    [SerializeField] private int[] inputPassword = new int[3];
-    public GameObject teleport_1;
-    public GameObject teleport_2;
-
+    public int[] password = new int[] { 1, 1, 1 }; // HasÅ‚o do aktywacji teleportu, moÅ¼na zmieniÄ‡
+    [SerializeField] private int[] inputPassword = new int[3]; // SÅ‚uÅ¼y do identyfikacji w inspektorze Unity
+    public GameObject teleport_1; // DodaÄ‡ obiekt gry w inspektorze
+    public GameObject teleport_2; // DodaÄ‡ obiekt gry w inspektorze
 
     public void AddToInputPassword(int index, int value)
     {
-        inputPassword[index -1 ] = value;
+        inputPassword[index - 1] = value;
 
-        // Ïåğåâ³ğÿºìî, ÷è ñï³âïàäàşòü ìàñèâè password òà inputPassword
+        // SprawdÅº, czy tablice password i inputPassword sÄ… zgodne
         bool isMatch = true;
         for (int i = 0; i < password.Length; i++)
         {
@@ -25,7 +24,7 @@ public class TeleportManager : MonoBehaviour
             }
         }
 
-        // ßêùî ìàñèâè ñï³âïàäàşòü, òî âèêëèêàºìî ³âåíò
+        // JeÅ›li tablice sÄ… zgodne, wywoÅ‚aj zdarzenie
         if (isMatch)
         {
             teleport_1.SetActive(true);
